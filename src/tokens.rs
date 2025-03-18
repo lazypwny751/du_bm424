@@ -1,5 +1,6 @@
 #[derive(Debug)]
-pub(crate) enum TokenValue {
+#[warn(dead_code)] // LOOK HERE
+pub(crate) enum Tokens {
 	Plus,				// +
 	Minus,				// -
 
@@ -11,28 +12,49 @@ pub(crate) enum TokenValue {
 	LeftBracet, 		// (
 	RightBracet, 		// )
 
-	Num(i32),			// sayı
+	Number(String),		// sayı, evet sayı nasıl string değer alıyor diyon ama lexer için her şey char.
 	Text(String),		// bu string literal olacak, çift tırnak arasına giren her şey.
 	True,				// true
 	False,				// false
+	None,				// none
+
+	Null,				// null pointe
+	NewLine				// bir adam yazı yazarken satır başına gelmiş ölmüş xd
 }
 
-#[derive(Debug)]
-pub struct Token {
-	pub token: String,
-	pub value: TokenValue,
-}
-
-impl Token {
+impl Tokens {
 	pub fn lex(ctx: &[u8]) -> Vec<Self> {
-		let tokens: Vec<Self> = vec![];
-		// for byte in ctx {
-			// match byte {
-				// 10 => {
-					// 
-				// }
-			// }
-		// }
+		let mut tokens: Vec<Self> = vec![];
+
+		let mut i = 0;
+		while i < ctx.len() {
+			let mut buf: String = String::new();
+
+			match ctx[i] as char {
+				'0'..'9' => {
+					while (ctx[i] as char) >= '0' && (ctx[i] as char) <= '9' {
+						buf.push(ctx[i] as char);
+						i += 1;
+					}
+					tokens.push(Tokens::Number(buf));
+				},
+
+				'\n' => {
+					tokens.push(Tokens::NewLine);					
+				},
+
+				' ' => {
+					i += 1;
+				},
+
+				_ => {
+					buf.push(ctx[i] as char);
+					tokens.push(Tokens::None);
+				}
+			}
+			i += 1;
+		}
+
 		tokens
 	}
 }

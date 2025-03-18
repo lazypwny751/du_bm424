@@ -5,7 +5,7 @@ use std::env;
 use runtime::error;
 use std::process::ExitCode;
 use std::fs;
-use tokens::Token;
+use tokens::Tokens;
 
 fn main() -> ExitCode {
 	let args: Vec<String> = env::args().collect();
@@ -14,8 +14,9 @@ fn main() -> ExitCode {
 		for file in args.into_iter().skip(1) {
 			let ctx = fs::read_to_string(file).expect("Dosya okunamadı");
 			let bytes = ctx.chars().as_str().as_bytes();
-			for token in Token::lex(&bytes) {
-				println!("{}", token.token);
+
+			for token in Tokens::lex(&bytes) {
+				println!("{:?}", token);
 			}
 		}
 	} else {
