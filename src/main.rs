@@ -12,7 +12,7 @@ fn main() -> ExitCode {
 
 	if args.len() >= 2 {
 		for file in args.into_iter().skip(1) {
-			let ctx = fs::read_to_string(file).expect("Dosya okunamadı");
+			let ctx = fs::read_to_string(file).expect("Failed to read file.");
 			let bytes = ctx.chars().as_str().as_bytes();
 
 			for token in Tokens::lex(&bytes) {
@@ -20,7 +20,7 @@ fn main() -> ExitCode {
 			}
 		}
 	} else {
-		return error("Prametre olarak dosya sağlanmalı.", 1);
+		return error("Need's a file path as parameter.", 1);
 	}
 	ExitCode::from(0)
 }
