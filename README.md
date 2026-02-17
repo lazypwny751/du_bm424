@@ -4,12 +4,15 @@ Bu ders kapsamında **C** dili ile standart bir **PASCAL** derleyicisi nasıl ç
 > [!WARNING]
 > Bu depodaki içerikler çıkmışlara yönelik ya da dersi geçmek amacıyla değil dersin mantığını anlamak ve anlatmak amacıyla hazırlanmıştır.
 
+<img width="1536" height="1024" alt="twi_reading_dragon_book" src="https://github.com/user-attachments/assets/146464a1-8e22-4958-9f6a-2eb7392edc75" />
+
 # Tech Stack
 Bu ders içeriği projesinde kullanılan teknoloji yığını:
 - **sh**: Otomasyonlar için POSIX uyumlu bir shell.
 - **LaTeX Compiler**: Dokümanlar için LaTeX derleyicisi.
 - **Make**: Build almak için Make.
 - **C Compiler**: herhangi bir C derleyicisi(önerim **clang**).
+
 Opsiyonel:
 - Ayıp olmasın diye herhangi bir standart **PASCAL Compiler**(önerim **fpc**).
  
