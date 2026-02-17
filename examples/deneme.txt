@@ -1,4 +1,0 @@
-if true {
-	echo("hello")
-	echo("one") ; echo("two")
-}

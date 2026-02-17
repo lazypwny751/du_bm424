@@ -1,34 +1,40 @@
-# derleyici tasarım notlar
+# Düzce Üniversitesi BM 424 - Derleyici Tasarım.
+Bu ders kapsamında **C** dili ile standart bir **PASCAL** derleyicisi nasıl çalışıyor ve tasarlanıyor bunu göreceğiz ve yazacağız.
 
-## nesting level
-tekrar eden elemanların ne kadar tekrar ettiğini anlamak için kullanırız, mesela iç içe geçen if'ler var diyelim başta nesting level = 0 her bir if geldiğinde buna +1 eklenecek, şimdi burada da scope için geçerli şöyle basit bir örnekle izah etmek gerekirse:
+> [!WARNING]
+> Bu depodaki içerikler çıkmışlara yönelik ya da dersi geçmek amacıyla değil dersin mantığını anlamak ve anlatmak amacıyla hazırlanmıştır.
 
-```
-level = 0
-{	// level = 1
-	{	level = 2	
-		
-	}	// level = 1
-}  // level = 0
-```
-Günün sonundan nesting level başlangıç değeri ne ise o olmalıdır yoksa, biyerlerde bir hata var demektir.
+# Tech Stack
+Bu ders içeriği projesinde kullanılan teknoloji yığını:
+- **sh**: Otomasyonlar için POSIX uyumlu bir shell.
+- **LaTeX Compiler**: Dokümanlar için LaTeX derleyicisi.
+- **Make**: Build almak için Make.
+- **C Compiler**: herhangi bir C derleyicisi(önerim **clang**).
+Opsiyonel:
+- Ayıp olmasın diye herhangi bir standart **PASCAL Compiler**(önerim **fpc**).
+ 
+# Yapı
+## [00_ders_oncesi]()
 
-## derleyici vs yorumlayıcı
+## [01_giris]()
 
-### derleyiciler
-derleyiciler adamdır, makine kodu üretir hızlıdır lakin derlenme süreleri zaman alabilir eskiden:
-lex -> parse -> ast -> code gen -> assembler -> pure machine code
-artık daha kolay.
-lex -> parse -> ast gen -> ir code gen -> code gen -> assembler -> pure machine code
-intermediate representation sayesinde yorumlayıcılardaki mimari avantajı kanadı demek yanlış olmaz.
+## [02_]()
 
-### yorumlayıcılar
-yorumlayıcılar da adamdır lakin yorumlayıcılar şöyle çalışıyor,
-lex/parse -> ast -> code execution.
+## [03_]()
 
-code execution kısmı biraz üstü kapalı gelmiş olabilir, eskiden direkt olarak AST üstüne runtime ile bu gerçekleştiriliyormuş, AST bağlamında eğer "3" + "5" geldiyse arkaplanda runtime fonksiyonu bunları topluyor, bu sıkıntı. Sonradan bu VM bazlı oldu ve her mimariye ayrı kod yazmak yerine vm'i her mimaride çalışacak şekilde yaptılar ve ast'den gelen kodu vm'de çalıştırdılar yani "3" + "5"'i doğrudan makine bazlı çalıştırmak yerine vm'den çalıştırmasını istediler vm kodu optimize ederek uygun mimaride çalıştırdı çıktıyı sağladı.
+## [04_]()
 
-![kita rust](https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books/blob/master/Rust/Ikuyo_Kita_holding_Rust_Book.png?raw=true)
+## [05_]()
 
-# LICENSE
-[MIT]()
+...
+
+## Katkıda Bulunma
+Katkılar her zaman memnuniyetle karşılanır.  
+Büyük değişiklikler için lütfen önce bir konu (issue) açarak neyi değiştirmek istediğinizi anlatın.
+
+Lütfen gerekli testleri güncellediğinizden emin olun.
+
+Teşekkürler ❤️
+
+# Lisans
+[MIT](https://opensource.org/license/mit)
